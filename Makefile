@@ -1,0 +1,23 @@
+CFLAGS=-std=c99 -W -Wall -Werror -pedantic -g
+LIBCFLAGS=$(CFLAGS) -fPIC
+LDFLAGS=-shared
+
+default: all
+
+%.o:%.c
+	@echo "  CC $^"
+	@$(CC) $(LIBCFLAGS) -o $@ -c $^
+	@echo "  CC $*_test"
+	@$(CC) $(CFLAGS) -o $*_test $*_test.c $@
+	@./$*_test;
+
+libcontainers.so: list.o
+	@echo "  LD $@"
+	@$(CC) $(LDFLAGS) -o $@ $^
+
+all: libcontainers.so
+
+clean:
+	@rm -rf *.o *.so *_test
+
+.PHONY: clean default all
