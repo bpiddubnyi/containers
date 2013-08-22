@@ -7,7 +7,7 @@ default: all
 %.o:%.c
 	@echo "  CC $^"
 	@$(CC) $(LIBCFLAGS) -o $@ -c $^
-	@echo "  CC $*_test"
+	@echo "  TEST $*"
 	@$(CC) $(CFLAGS) -o $*_test $*_test.c $@
 	@./$*_test;
 
