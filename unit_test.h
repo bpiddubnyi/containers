@@ -9,7 +9,7 @@
 
 #define UNIT_START \
 int main() { \
-	unsigned int tests_passed; \
+	unsigned int tests_passed = 0; \
 	unsigned int tests_total; \
 	unsigned int fail = 0; \
 	char err_buf[ERR_BUF_SIZE];
