@@ -11,7 +11,7 @@ default: all
 	@$(CC) $(CFLAGS) -o $*_test $*_test.c $@
 	@./$*_test;
 
-libcontainers.so: list.o
+libcontainers.so: list.o circular_buffer.o
 	@echo "  LD $@"
 	@$(CC) $(LDFLAGS) -o $@ $^
 
