@@ -1,4 +1,4 @@
-CFLAGS=-std=c99 -W -Wall -Werror -pedantic -g
+CFLAGS=-std=c99 -W -Wall -Werror -g
 LIBCFLAGS=$(CFLAGS) -fPIC
 LDFLAGS=-shared
 
